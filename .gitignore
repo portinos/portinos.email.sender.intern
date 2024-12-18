@@ -23,7 +23,6 @@ pnpm-debug.log*
 
 # IDE and editor files
 .idea/
-.vscode/
 *.swp
 *.swo
 .DS_Store
