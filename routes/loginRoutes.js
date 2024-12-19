@@ -5,7 +5,7 @@ import { renderLogin, handleLogin } from '../controllers/loginController.js';
 const router = express.Router();
 
 // define the routes
-router.get('/', renderLogin);
-router.post('/', handleLogin);
+router.get('/login', renderLogin);
+router.post('/login', handleLogin);
 
 export default router;

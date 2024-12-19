@@ -5,7 +5,7 @@ export const renderLogin = (req, res) => {
 
 // this is the route that handles the login form submission
 export const handleLogin = (req, res) => {
-  const { username, password } = req.body;
-  console.log('login form submitted', username, password);
+  const { email, password } = req.body;
+  console.log('login form submitted', email, password);
   res.redirect('/form');
 };

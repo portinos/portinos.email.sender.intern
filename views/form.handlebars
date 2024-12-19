@@ -1,8 +1,8 @@
 <div class="form-container">
   <h1>Portinos Email Sender Tool</h1>
   
-  <form action='/form' method='POST'>
-    {{> components/form-input 
+  <form action='/' method='POST'>
+    {{> form-group 
       label="Email Address"
       type="email"
       id="email"
@@ -10,7 +10,7 @@
       required=true
     }}
     
-    {{> components/form-input 
+    {{> form-group 
       label="Subject"
       type="text"
       id="subject"
@@ -28,7 +28,7 @@
     </div>
     
     <button type='submit'>Send Email</button>
-    {{> components/form-error error=error}}
+    {{> form-error error=error}}
     
     {{#if success}}
       <p class='success'>{{success}}</p>
