@@ -4,7 +4,7 @@ export const renderForm = (req, res) => {
 };
 
 // this is the route that handles the form submission
-export const handleForm = (req, res) => {
+export const handleSubmit = (req, res) => {
   const { data } = req.body;
   console.log('form submitted', data);
   res.send('Form submitted');

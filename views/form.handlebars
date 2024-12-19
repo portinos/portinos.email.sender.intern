@@ -1,0 +1,15 @@
+<h1>Portinos Email Sender Tool</h1>
+<form action='/form' method='POST'>
+  <label for='email'>Email Address</label>
+  <input type='email' required name='email' id='email' />
+  <label for='subject'>Subject</label>
+  <input type='text' required name='subject' id='subject' />
+  <label for='HTML'>HTML</label>
+  <textarea name='HTML' id='HTML' required></textarea>
+  <button type='submit'>Send Email</button>
+  {{#if error}}
+    <p class='error'>{{error}}</p>
+  {{#if success}}
+    <p class='success'>{{success}}</p>
+  {{/if}}
+</form>
