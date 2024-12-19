@@ -1,15 +1,37 @@
-<h1>Portinos Email Sender Tool</h1>
-<form action='/form' method='POST'>
-  <label for='email'>Email Address</label>
-  <input type='email' required name='email' id='email' />
-  <label for='subject'>Subject</label>
-  <input type='text' required name='subject' id='subject' />
-  <label for='HTML'>HTML</label>
-  <textarea name='HTML' id='HTML' required></textarea>
-  <button type='submit'>Send Email</button>
-  {{#if error}}
-    <p class='error'>{{error}}</p>
-  {{#if success}}
-    <p class='success'>{{success}}</p>
-  {{/if}}
-</form>
+<div class="form-container">
+  <h1>Portinos Email Sender Tool</h1>
+  
+  <form action='/form' method='POST'>
+    {{> components/form-input 
+      label="Email Address"
+      type="email"
+      id="email"
+      name="email"
+      required=true
+    }}
+    
+    {{> components/form-input 
+      label="Subject"
+      type="text"
+      id="subject"
+      name="subject"
+      required=true
+    }}
+    
+    <div class="form-group">
+      <label for="HTML">HTML</label>
+      <textarea 
+        name="HTML" 
+        id="HTML" 
+        required
+      ></textarea>
+    </div>
+    
+    <button type='submit'>Send Email</button>
+    {{> components/form-error error=error}}
+    
+    {{#if success}}
+      <p class='success'>{{success}}</p>
+    {{/if}}
+  </form>
+</div>

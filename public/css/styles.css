@@ -1,0 +1,131 @@
+/* Base styles */
+:root {
+  --primary-color: #ff6b00;
+  --primary-hover: #e65c00;
+  --error-color: #dc2626;
+  --success-color: #16a34a;
+  --text-color: #333;
+  --border-color: #ddd;
+  --bg-color: #fff8f3;
+  --input-bg: #fff;
+  --input-border: #d1d5db;
+  --input-focus-border: #ff6b00;
+  --input-shadow: rgba(255, 107, 0, 0.05);
+  --label-color: #4b5563;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Form Container */
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Typography */
+h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Form Components */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--label-color);
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px var(--input-shadow);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--primary-color);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Messages */
+.error,
+.success {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.success {
+  color: var(--success-color);
+}

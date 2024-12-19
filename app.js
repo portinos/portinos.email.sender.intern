@@ -23,6 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 //   })
 // );
 
+app.use(express.static('public'));
+
 // Routes
 app.use('/', loginRoutes);
 app.use('/form', formRoutes);

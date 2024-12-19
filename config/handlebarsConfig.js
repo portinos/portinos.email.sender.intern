@@ -7,7 +7,7 @@ export const configureHandlebars = (app) => {
       extname: '.handlebars',
       defaultLayout: 'main',
       layoutsDir: './views/layouts',
-      partialsDir: './views/partials',
+      partialsDir: ['./views/partials/layouts', './views/partials/components'],
     })
   );
 
