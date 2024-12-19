@@ -27,6 +27,17 @@ app.use(
 app.use('/', loginRoutes);
 app.use('/form', formRoutes);
 
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+
+  res.status(404).render('error', {
+    title: '404 - Page Not Found',
+    message: 'The page you are looking for does not exist.',
+    error: process.env.NODE_ENV === 'development' ? err : null,
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
