@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import { configureHandlebars } from './config/handlebarsConfig.js';
 import loginRoutes from './routes/loginRoutes.js';
@@ -10,7 +11,17 @@ const PORT = process.env.PORT || 3000;
 configureHandlebars(app);
 
 // Middleware
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Session middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 // Routes
 app.use('/', loginRoutes);
