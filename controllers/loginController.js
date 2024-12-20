@@ -1,11 +1,32 @@
-// this is the route that renders the login page
+const MOCK_USER = {
+  email: 'cfernandez@portinos.com',
+  password: 'password',
+};
+
 export const renderLogin = (req, res) => {
+  if (req.session.isAuthenticated) {
+    return res.redirect('/form');
+  }
   res.render('login', { title: 'Login' });
 };
 
-// this is the route that handles the login form submission
 export const handleLogin = (req, res) => {
   const { email, password } = req.body;
-  console.log('login form submitted', email, password);
-  res.redirect('/form');
+
+  if (email === MOCK_USER.email && password === MOCK_USER.password) {
+    req.session.isAuthenticated = true;
+    req.session.user = { email };
+    return res.redirect('/form');
+  }
+
+  res.render('login', {
+    title: 'Login',
+    error: 'Invalid email or password',
+    email, // Preserve the email input
+  });
+};
+
+export const handleLogout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/login');
 };

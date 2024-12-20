@@ -3,6 +3,7 @@ import express from 'express';
 import { configureHandlebars } from './config/handlebarsConfig.js';
 import loginRoutes from './routes/loginRoutes.js';
 import formRoutes from './routes/formRoutes.js';
+import session from 'express-session';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,20 +15,24 @@ configureHandlebars(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// // Session middleware
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-//   })
-// );
+// Session middleware
+app.use(
+  session({
+    secret: 'your-temporary-secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
+  })
+);
 
 app.use(express.static('public'));
 
 // Routes
 app.use('/', loginRoutes);
 app.use('/form', formRoutes);
+app.get('/', (req, res) => {
+  res.redirect('/form');
+});
 
 // Error handling
 app.use((err, req, res, next) => {
